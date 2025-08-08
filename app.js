@@ -12,7 +12,7 @@ const app = express();
 /* middleware connections */
 app.use(
   cors({
-    origin: process.env.ORIGIN_URL,
+    origin: process.env.ORIGIN_URL.replace(/\/$/, ""), // Remove trailing slash if present
     methods: "GET, PATCH, POST, DELETE",
     preflightContinue: false,
     optionsSuccessStatus: 204,
